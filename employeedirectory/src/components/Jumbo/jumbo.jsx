@@ -15,9 +15,9 @@ const styles = {
   },
 };
 
-function Wrapper() {
+function Jumbo() {
   return (
-    <div className="wrapper">
+    <div className="jumbo">
       <div style={styles.jumbo} className="jumbotron jumbotron-fluid">
         <div className="container">
           <h1 style={styles.heading} className="display-4">
@@ -33,4 +33,4 @@ function Wrapper() {
   );
 }
 
-export default Wrapper;
+export default Jumbo;

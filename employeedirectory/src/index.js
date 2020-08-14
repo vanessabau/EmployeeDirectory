@@ -2,14 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import Wrapper from "./components/wrapper";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.css";
 import "font-awesome/css/font-awesome.css";
 
 ReactDOM.render(
   <>
-    <Wrapper></Wrapper>
     <App />
   </>,
   document.getElementById("root")
