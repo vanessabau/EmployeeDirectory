@@ -1,5 +1,6 @@
 import React from "react";
 import _ from "lodash";
+import PropTypes from "prop-types"; //Use PropTypes to catch bugs related to type-checking
 
 const Pagination = (props) => {
   //Create an array of page numbers and use the map method to map each item to an <li>, then render the page number dynamically to create our pagination
@@ -29,6 +30,14 @@ const Pagination = (props) => {
       </ul>
     </nav>
   );
+};
+
+//Specify the types for each pagination prop and if it is required
+Pagination.propTypes = {
+  itemsCount: PropTypes.number.isRequired,
+  pageSize: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  onPageChange: PropTypes.func.isRequired,
 };
 
 export default Pagination;
