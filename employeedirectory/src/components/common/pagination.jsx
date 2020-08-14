@@ -3,17 +3,27 @@ import _ from "lodash";
 
 const Pagination = (props) => {
   //Create an array of page numbers and use the map method to map each item to an <li>, then render the page number dynamically to create our pagination
-  const { itemsCount, pageSize } = props;
+  const { itemsCount, pageSize, currentPage, onPageChange } = props;
+  console.log(currentPage);
 
-  const pagesCount = itemsCount / pageSize;
+  //Round decimals to the next integer
+  const pagesCount = Math.ceil(itemsCount / pageSize);
+  //If there is only one page do not render pagination
+  if (pagesCount === 1) return null;
   const pages = _.range(1, pagesCount + 1);
 
   return (
     <nav aria-label="Page navigation">
       <ul className="pagination">
         {pages.map((page) => (
-          <li class="page-item">
-            <a class="page-link">{page}</a>
+          <li
+            key={page}
+            //Dynamically render the active state when on the current page
+            className={page === currentPage ? "page-item active" : "page-item"}
+          >
+            <a className="page-link" onClick={() => onPageChange(page)}>
+              {page}
+            </a>
           </li>
         ))}
       </ul>

@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { getEmployees } from "../resources/employeeResources";
 import Pagination from "../common/pagination";
+import { Paginate } from "../utils/paginate";
 
 class Employees extends Component {
   state = {
     employees: getEmployees(),
+    currentPage: 1,
     pageSize: 4,
   };
 
@@ -17,19 +19,18 @@ class Employees extends Component {
     this.setState({ employees: employees });
   };
 
-  handleSort = (employee) => {
-    const employees = this.state.employees.sort();
-    this.setState({ employees });
-  };
-
   handlePageChange = (page) => {
-    console.log(page);
+    //set the current page property to current page and update the state
+    this.setState({ currentPage: page });
   };
 
   render() {
     const { length: count } = this.state.employees;
+    const { pageSize, currentPage, employees: allEmployees } = this.state;
     //If there are no employees in the database return a message indicating
     if (count === 0) return <p> There are no employees in the Database </p>;
+
+    const employees = Paginate(allEmployees, currentPage, pageSize);
 
     //If there are employees return a table with employee data
     return (
@@ -50,7 +51,8 @@ class Employees extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.employees.map((employee) => (
+            {/* Render the list of employees */}
+            {employees.map((employee) => (
               <tr key={employee._id}>
                 <td>{employee.firstName}</td>
                 <td>{employee.lastName}</td>
@@ -67,9 +69,11 @@ class Employees extends Component {
               </tr>
             ))}
           </tbody>
+          {/*render the Pagination component with the following props*/}
           <Pagination
             itemsCount={count}
-            pageSize={this.state.pageSize}
+            pageSize={pageSize}
+            currentPage={currentPage}
             onPageChange={this.handlePageChange}
           />
           {/* Can also use {this.state.movies.length} */}
