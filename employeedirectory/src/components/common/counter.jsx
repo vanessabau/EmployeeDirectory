@@ -16,16 +16,14 @@ class Counter extends Component {
           style={{
             fontFamily: "impact",
             fontSize: "1.6em",
-            color: "gray",
-            letterSpacing: ".08em",
-            textShadow: "1px 1px 1px black",
+            color: "darkgray",
+            letterSpacing: ".07em",
             float: "left",
-            marginLeft: "15px",
-            marginTop: "6px",
           }}
         >
           {" "}
-          {count} EMPLOYEES EXIST IN THE DATABASE
+          {count} EMPLOYEES EXIST IN THE DATABASE <br />
+          SORT BY COLUMN HEADING // FILTER BY TITLE
         </p>
       </>
     );

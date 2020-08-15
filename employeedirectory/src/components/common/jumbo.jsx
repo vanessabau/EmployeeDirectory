@@ -2,6 +2,8 @@ import React from "react";
 
 const styles = {
   jumbo: {
+    margin: "0",
+    marginBottom: "20px",
     backgroundColor: "#0D4F8B",
     color: "white",
   },

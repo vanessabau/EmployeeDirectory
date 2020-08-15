@@ -1,12 +1,14 @@
 import React, { Component, useState } from "react";
-import EmployeesTable from "./employeesTable";
-import SearchBox from "../Search/searchBox";
-import { getEmployees } from "../resources/employeeResources";
-import Pagination from "../common/pagination";
-import { Paginate } from "../utils/paginate";
-import ListGroup from "../common/listGroup";
-import { getTitles } from "../resources/titleService";
 import _ from "lodash";
+import Jumbo from "../common/jumbo";
+import SearchBox from "../common/searchBox";
+import Counter from "../common/counter";
+import EmployeesTable from "./employeesTable";
+import ListGroup from "../common/listGroup";
+import Pagination from "../common/pagination";
+import { getEmployees } from "../resources/employeeResources";
+import { getTitles } from "../resources/titleService";
+import { Paginate } from "../utils/paginate";
 import "./style.css";
 
 class Employees extends Component {
@@ -15,8 +17,9 @@ class Employees extends Component {
     titles: [],
     currentPage: 1,
     pageSize: 4,
+    searchQuery: "",
+    selectedTitle: null, //?
     sortColumn: { path: "lastName", order: "asc" },
-    userSearch: "",
   };
 
   //DEFINE STATE AFTER MOUNTING
@@ -26,12 +29,6 @@ class Employees extends Component {
   }
 
   //EVENT HANDLERS
-  handleSearch = (event) => {
-    const value = event.target.value;
-    this.setState({ userSearch: value });
-    console.log(value);
-  };
-
   handleDelete = (employee) => {
     //create new array with all the employees except the one you deleted
     const employees = this.state.employees.filter(
@@ -46,8 +43,17 @@ class Employees extends Component {
   };
 
   handleTitleSelect = (title) => {
-    this.setState({ selectedTitle: title, currentPage: 1 });
+    this.setState({ selectedTitle: title, searchQuery: "", currentPage: 1 });
   };
+
+  handleSearch = (query) => {
+    this.setState({ searchQuery: query, selectedTitle: null, currentPAge: 1 });
+  };
+  // handleSearch = (event) => {
+  //   const value = event.target.value;
+  //   this.setState({ userSearch: value });
+  //   console.log(value);
+  // };
 
   handleSort = (sortColumn) => {
     this.setState({ sortColumn });
@@ -55,20 +61,26 @@ class Employees extends Component {
 
   //RENDER MAIN COMPONENT
   render() {
-    const { length: count } = this.state.employees;
+    // const { length: count } = this.state.employees;
     const {
       pageSize,
       currentPage,
       sortColumn,
       selectedTitle,
+      searchQuery,
       employees: allEmployees,
     } = this.state;
 
-    //FILTER - If selected title and its id are both truthy, apply a filter, otherwise return all employees
-    const filtered =
-      selectedTitle && selectedTitle._id
-        ? allEmployees.filter((emp) => emp.title._id === selectedTitle._id)
-        : allEmployees;
+    //FILTER - If there is a search query, filter results, otherwise if selected title and its id are both truthy, apply a filter, otherwise return all employees
+    let filtered = allEmployees;
+    if (searchQuery)
+      filtered = allEmployees.filter((emp) =>
+        emp.lastName.toLowerCase().startsWith(searchQuery.toLowerCase())
+      );
+    else if (selectedTitle && selectedTitle._id)
+      filtered = allEmployees.filter(
+        (emp) => emp.title_id === selectedTitle._id
+      );
 
     //SORT
     const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
@@ -79,12 +91,20 @@ class Employees extends Component {
     //RENDER - If there are employees return a table with employee data
     return (
       <>
-        <SearchBox
-          userSearch={this.userSearch}
-          handleSearch={this.handleSearch}
-        />
-        <div style={{ padding: "0" }} className="container">
-          <div style={{ width: "100%", margin: "0" }} className="row">
+        <Jumbo />
+
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <Counter />
+            </div>
+
+            <div className="col-4">
+              <SearchBox value={searchQuery} onChange={this.handleSearch} />
+            </div>
+          </div>
+
+          <div className="row">
             <div className="col-2">
               <ListGroup
                 items={this.state.titles}
@@ -100,14 +120,13 @@ class Employees extends Component {
                 onDelete={this.handleDelete}
                 onSort={this.handleSort}
               />
+
               <Pagination
                 itemsCount={filtered.length}
                 pageSize={pageSize}
                 currentPage={currentPage}
                 onPageChange={this.handlePageChange}
               />
-              {/*Render components with their props*/}
-              {/* Can also use {this.state.employees.length} */}
             </div>
           </div>
         </div>
