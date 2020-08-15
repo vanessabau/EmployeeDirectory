@@ -15,11 +15,13 @@ class Counter extends Component {
         <p
           style={{
             fontFamily: "impact",
-            fontSize: "1.5em",
+            fontSize: "1.6em",
             color: "gray",
             letterSpacing: ".08em",
             textShadow: "1px 1px 1px black",
-            float: "right",
+            float: "left",
+            marginLeft: "25px",
+            marginTop: "6px",
           }}
         >
           {" "}
