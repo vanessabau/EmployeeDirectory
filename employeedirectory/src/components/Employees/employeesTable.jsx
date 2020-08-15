@@ -1,39 +1,25 @@
 import React, { Component } from "react";
+import TableHeader from "../common/tableHeader";
 
 class EmployeesTable extends Component {
-  raiseSort = (path) => {
-    //Handle both ascending and descending sorting
-    //Clone and compare to change sort order, otherwise sort ascending
-    const sortColumn = { ...this.props.sortColumn };
-    if (sortColumn.path === path)
-      sortColumn.order = sortColumn.order === "asc" ? "desc" : "asc";
-    else {
-      sortColumn.path = path;
-      sortColumn.order = "asc";
-    }
-    this.props.onSort(sortColumn); //raise sort event
-  };
-
+  columns = [
+    { path: "firstName", label: "FIRST NAME" },
+    { path: "lastName", label: "LAST NAME" },
+    { path: "title", label: "TITLE" },
+    { path: "dailyRentalRate", label: "RATE/YR" },
+    { key: "delete", label: "DELETE EMPLOYEE" },
+  ];
   render() {
-    const { employees, onDelete } = this.props;
+    const { employees, onDelete, onSort, sortColumn } = this.props;
 
     return (
       <table className="table">
-        <thead>
-          <tr
-            style={{
-              fontFamily: "impact",
-              fontSize: "1.3em",
-              cursor: "pointer",
-            }}
-          >
-            <th onClick={() => this.raiseSort("firstName")}>FIRST NAME</th>
-            <th onClick={() => this.raiseSort("lastName")}>LAST NAME</th>
-            <th onClick={() => this.raiseSort("title.name")}>TITLE</th>
-            <th onClick={() => this.raiseSort("dailyRentalRate")}>RATE/YR</th>
-            <th style={{ cursor: "default" }}>DELETE EMPLOYEE</th>
-          </tr>
-        </thead>
+        <TableHeader
+          columns={this.columns}
+          sortColumn={sortColumn}
+          onSort={onSort}
+        />
+        {/* <TableBody data={employees} /> */}
         <tbody>
           {/* Render the list of employees */}
           {employees.map((employee) => (

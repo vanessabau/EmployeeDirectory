@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import EmployeesTable from "./employeesTable";
+import SearchForm from "../Search/searchform";
 import { getEmployees } from "../resources/employeeResources";
 import Pagination from "../common/pagination";
 import { Paginate } from "../utils/paginate";
@@ -15,6 +16,7 @@ class Employees extends Component {
     currentPage: 1,
     pageSize: 4,
     sortColumn: { path: "lastName", order: "asc" },
+    userSearch: "",
   };
 
   //DEFINE STATE AFTER MOUNTING
@@ -24,6 +26,12 @@ class Employees extends Component {
   }
 
   //EVENT HANDLERS
+  handleSearch = (event) => {
+    const value = event.target.value;
+    this.setState({ userSearch: value });
+    console.log(value);
+  };
+
   handleDelete = (employee) => {
     //create new array with all the employees except the one you deleted
     const employees = this.state.employees.filter(
@@ -71,6 +79,10 @@ class Employees extends Component {
     //RENDER - If there are employees return a table with employee data
     return (
       <>
+        <SearchForm
+          userSearch={this.userSearch}
+          handleSearch={this.handleSearch}
+        />
         <div style={{ padding: "0" }} className="container">
           <div style={{ width: "100%", margin: "0" }} className="row">
             <div className="col-2">

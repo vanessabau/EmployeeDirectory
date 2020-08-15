@@ -20,7 +20,7 @@ class Counter extends Component {
             letterSpacing: ".08em",
             textShadow: "1px 1px 1px black",
             float: "left",
-            marginLeft: "25px",
+            marginLeft: "15px",
             marginTop: "6px",
           }}
         >

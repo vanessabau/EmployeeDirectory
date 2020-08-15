@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 
-function SearchForm(props) {
+function SearchForm({ userSearch, handleSearch }) {
   return (
     <div className="form-container">
       <form className="search">
         <div className="form-group">
           <label htmlFor="breed"></label>
           <input
-            // value={props.search}
-            // onChange={props.handleInputChange}
+            value={userSearch}
+            onChange={handleSearch}
             // name="breed"
             // list="breeds"
             // type="text"
@@ -29,6 +29,7 @@ function SearchForm(props) {
           >
             Search
           </button>
+          <span> Sort by column heading, filter by Title</span>
         </div>
       </form>
     </div>
