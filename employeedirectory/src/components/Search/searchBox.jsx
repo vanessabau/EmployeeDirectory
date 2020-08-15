@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 
-function SearchForm({ userSearch, handleSearch }) {
+function SearchBox({ userSearch, onChange }) {
   return (
     <div className="form-container">
       <form className="search">
@@ -9,7 +9,7 @@ function SearchForm({ userSearch, handleSearch }) {
           <label htmlFor="breed"></label>
           <input
             value={userSearch}
-            onChange={handleSearch}
+            onChange={onChange}
             // name="breed"
             // list="breeds"
             // type="text"
@@ -36,4 +36,4 @@ function SearchForm({ userSearch, handleSearch }) {
   );
 }
 
-export default SearchForm;
+export default SearchBox;

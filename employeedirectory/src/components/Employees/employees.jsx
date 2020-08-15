@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 import EmployeesTable from "./employeesTable";
-import SearchForm from "../Search/searchform";
+import SearchBox from "../Search/searchBox";
 import { getEmployees } from "../resources/employeeResources";
 import Pagination from "../common/pagination";
 import { Paginate } from "../utils/paginate";
@@ -79,7 +79,7 @@ class Employees extends Component {
     //RENDER - If there are employees return a table with employee data
     return (
       <>
-        <SearchForm
+        <SearchBox
           userSearch={this.userSearch}
           handleSearch={this.handleSearch}
         />

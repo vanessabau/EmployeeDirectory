@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TableHeader from "../common/tableHeader";
+// import TableBody from "../common/tableBody";
 
 class EmployeesTable extends Component {
   columns = [
@@ -19,9 +20,8 @@ class EmployeesTable extends Component {
           sortColumn={sortColumn}
           onSort={onSort}
         />
-        {/* <TableBody data={employees} /> */}
+        {/* <TableBody columns={this.columns} data={employees} /> */}
         <tbody>
-          {/* Render the list of employees */}
           {employees.map((employee) => (
             <tr key={employee._id}>
               <td>{employee.firstName}</td>
