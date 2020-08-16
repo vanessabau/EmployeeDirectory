@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import _ from "lodash";
 import Jumbo from "../common/jumbo";
 import SearchBox from "../common/searchBox";
@@ -43,17 +43,13 @@ class Employees extends Component {
   };
 
   handleTitleSelect = (title) => {
+    console.log(title);
     this.setState({ selectedTitle: title, searchQuery: "", currentPage: 1 });
   };
 
   handleSearch = (query) => {
     this.setState({ searchQuery: query, selectedTitle: null, currentPAge: 1 });
   };
-  // handleSearch = (event) => {
-  //   const value = event.target.value;
-  //   this.setState({ userSearch: value });
-  //   console.log(value);
-  // };
 
   handleSort = (sortColumn) => {
     this.setState({ sortColumn });
@@ -73,14 +69,17 @@ class Employees extends Component {
 
     //FILTER - If there is a search query, filter results, otherwise if selected title and its id are both truthy, apply a filter, otherwise return all employees
     let filtered = allEmployees;
-    if (searchQuery)
+    if (searchQuery) {
       filtered = allEmployees.filter((emp) =>
         emp.lastName.toLowerCase().startsWith(searchQuery.toLowerCase())
       );
-    else if (selectedTitle && selectedTitle._id)
+    } else if (selectedTitle && selectedTitle._id) {
       filtered = allEmployees.filter(
-        (emp) => emp.title_id === selectedTitle._id
+        (emp) => emp.title._id === selectedTitle._id
       );
+    } else {
+      filtered = allEmployees;
+    }
 
     //SORT
     const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);

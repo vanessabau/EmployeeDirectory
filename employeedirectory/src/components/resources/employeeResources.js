@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import * as titlesAPI from "./titleService";
 
 const employees = [
