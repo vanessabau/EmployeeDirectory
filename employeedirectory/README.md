@@ -8,11 +8,7 @@ React front-end application that allows users to search for employees based on l
 
 ## GITHUB EMAIL: vbautista916@icloud.com
 
-# ![screenshot](https://avatars2.githubusercontent.com/u/59780981?v=4)
-
-## Click video link below to watch demo
-
-# [![Watch the video](https://raw.githubusercontent.com/vanessabau/ReadMe-generator/master/Screen%20Shot%202020-06-03%20at%2011.41.56%20AM.png)](https://youtu.be/-mkFih5QBos)
+# ![screenshot](https://raw.githubusercontent.com/vanessabau/EmployeeDirectory/master/employeedirectory/employeeDirectory.png)
 
 ## TABLE OF CONTENTS
 
@@ -27,11 +23,11 @@ React front-end application that allows users to search for employees based on l
 
 ### Installation
 
-To use run 'npm install' from terminal on to add dependencies.
+To use locally React must be installed. Install dependencies by running "npm install" in the terminal.
 
 ### Useage
 
-This is a CLI application to be used from the terminal. Once dependencies are installed open terminal and run 'node index' then follow the prompts.
+This is currently only a front-end application. To use locall run 'npm start' from the terminal, otherwise visit the deployed version's url.
 
 ### Licensing
 
@@ -39,7 +35,7 @@ None
 
 ### Contributors
 
-None
+There were no contributors for this application however I utilized many of the directives from a series of React tutorial videos by code-with-mosh.
 
 ### Testing
 
