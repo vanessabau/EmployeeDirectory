@@ -1,68 +1,50 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# README Employee Directory
 
-## Available Scripts
+React front-end application that allows users to search for employees based on last name, sort employees by column headers, filter employees by title, and delete employees.
 
-In the project directory, you can run:
+# ![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)
 
-### `npm start`
+## GITHUB USER: vanessabau
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## GITHUB EMAIL: vbautista916@icloud.com
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+# ![screenshot](https://avatars2.githubusercontent.com/u/59780981?v=4)
 
-### `npm test`
+## Click video link below to watch demo
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# [![Watch the video](https://raw.githubusercontent.com/vanessabau/ReadMe-generator/master/Screen%20Shot%202020-06-03%20at%2011.41.56%20AM.png)](https://youtu.be/-mkFih5QBos)
 
-### `npm run build`
+## TABLE OF CONTENTS
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. [Installation](###Installation)
+2. [Useage](###Useage)
+3. [Licensing](###Licensing)
+4. [Contributors](###Contributors)
+5. [Tests](###Testing)
+6. [Questions](###Questions)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## CONTENT
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+To use run 'npm install' from terminal on to add dependencies.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Useage
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This is a CLI application to be used from the terminal. Once dependencies are installed open terminal and run 'node index' then follow the prompts.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Licensing
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+None
 
-## Learn More
+### Contributors
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+None
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Testing
 
-### Code Splitting
+Currently no tests are available.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Questions
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+None
