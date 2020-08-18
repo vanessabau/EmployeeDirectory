@@ -8,7 +8,7 @@ React front-end application that allows users to search for employees based on l
 
 ## GITHUB EMAIL: vbautista916@icloud.com
 
-# ![screenshot](https://raw.githubusercontent.com/vanessabau/EmployeeDirectory/master/employeedirectory/employeeDirectory.png)
+# ![screenshot](https://raw.githubusercontent.com/vanessabau/EmployeeDirectory/master/employeeDirectory.png)
 
 ## TABLE OF CONTENTS
 
