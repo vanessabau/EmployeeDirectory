@@ -26,6 +26,7 @@ class Employees extends Component {
   componentDidMount() {
     const titles = [{ _id: "", name: "ALL EMPLOYEES" }, ...getTitles()];
     this.setState({ employees: getEmployees(), titles });
+    console.log("mounted");
   }
 
   //EVENT HANDLERS
