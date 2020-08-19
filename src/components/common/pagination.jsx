@@ -1,11 +1,12 @@
+//DEPENDENCIES
 import React from "react";
 import _ from "lodash";
 import PropTypes from "prop-types"; //Use PropTypes to catch bugs related to type-checking
 
+//
 const Pagination = (props) => {
   //Create an array of page numbers and use the map method to map each item to an <li>, then render the page number dynamically to create our pagination
   const { itemsCount, pageSize, currentPage, onPageChange } = props;
-  console.log(currentPage);
 
   //Round decimals to the next integer
   const pagesCount = Math.ceil(itemsCount / pageSize);
@@ -13,13 +14,15 @@ const Pagination = (props) => {
   if (pagesCount === 1) return null;
   const pages = _.range(1, pagesCount + 1);
 
+  //Define elements to be rendered
   return (
     <nav aria-label="Page navigation">
       <ul className="pagination">
+        {/* Take each page and map it to the following format */}
         {pages.map((page) => (
           <li
             key={page}
-            //Dynamically render the active state when on the current page
+            //Dynamically render the state as active when the li is clicked
             className={page === currentPage ? "page-item active" : "page-item"}
           >
             {/* eslint-disable-next-line */}
@@ -41,4 +44,5 @@ Pagination.propTypes = {
   onPageChange: PropTypes.func.isRequired,
 };
 
+//EXPORT
 export default Pagination;

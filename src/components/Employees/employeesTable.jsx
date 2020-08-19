@@ -1,8 +1,11 @@
+//CREATE THE EMPLOYEE TABLE COMPONENT
+//DEPENDENCIES
 import React, { Component } from "react";
 import TableHeader from "../common/tableHeader";
-// import TableBody from "../common/tableBody";
 
+//CREATE COMPONENT CLASS
 class EmployeesTable extends Component {
+  //Define the column headings to be rendered dynamically
   columns = [
     { path: "firstName", label: "FIRST NAME" },
     { path: "lastName", label: "LAST NAME" },
@@ -10,9 +13,13 @@ class EmployeesTable extends Component {
     { path: "dailyRentalRate", label: "RATE/YR" },
     { key: "delete", label: "DELETE EMPLOYEE" },
   ];
+
+  //RENDER
   render() {
+    //Destructure properties and methods
     const { employees, onDelete, onSort, sortColumn } = this.props;
 
+    //Define elements to render
     return (
       <table className="table">
         <TableHeader
@@ -20,7 +27,6 @@ class EmployeesTable extends Component {
           sortColumn={sortColumn}
           onSort={onSort}
         />
-        {/* <TableBody columns={this.columns} data={employees} /> */}
         <tbody>
           {employees.map((employee) => (
             <tr key={employee._id}>
@@ -44,4 +50,5 @@ class EmployeesTable extends Component {
   }
 }
 
+//EXPORT
 export default EmployeesTable;

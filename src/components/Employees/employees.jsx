@@ -1,3 +1,4 @@
+//Dependencies
 import React, { Component } from "react";
 import _ from "lodash";
 import Jumbo from "../common/jumbo";
@@ -11,14 +12,16 @@ import { getTitles } from "../resources/titleService";
 import { Paginate } from "../utils/paginate";
 import "./style.css";
 
+//CREATE COMPONENT CLASS TO SERVE AS MAIN OVER-ARCHING COMPONENT
 class Employees extends Component {
+  //DEFINE INITIAL STATE
   state = {
     employees: [],
     titles: [],
     currentPage: 1,
     pageSize: 4,
     searchQuery: "",
-    selectedTitle: null, //?
+    selectedTitle: null,
     sortColumn: { path: "lastName", order: "asc" },
   };
 
@@ -31,7 +34,7 @@ class Employees extends Component {
 
   //EVENT HANDLERS
   handleDelete = (employee) => {
-    //create new array with all the employees except the one you deleted
+    //create new array with all the employees except the one the user deleted
     const employees = this.state.employees.filter(
       (emp) => emp._id !== employee._id
     );
@@ -44,15 +47,17 @@ class Employees extends Component {
   };
 
   handleTitleSelect = (title) => {
-    console.log(title);
+    //set selected title to the title the user selects, reset the search query to an empty string and current page to 1 for fluid functionality
     this.setState({ selectedTitle: title, searchQuery: "", currentPage: 1 });
   };
 
   handleSearch = (query) => {
-    this.setState({ searchQuery: query, selectedTitle: null, currentPAge: 1 });
+    //set the search query to the user input, set the selected title to null, and reset current page for fluid functionality
+    this.setState({ searchQuery: query, selectedTitle: null, currentPage: 1 });
   };
 
   handleSort = (sortColumn) => {
+    //set the state when the user has clicked a header to sort the table data
     this.setState({ sortColumn });
   };
 
@@ -68,7 +73,8 @@ class Employees extends Component {
       employees: allEmployees,
     } = this.state;
 
-    //FILTER - If there is a search query, filter results, otherwise if selected title and its id are both truthy, apply a filter, otherwise return all employees
+    //FILTER
+    //If there is a search query, filter results, otherwise if selected title and its id are both truthy, apply a filter, otherwise return all employees
     let filtered = allEmployees;
     if (searchQuery) {
       filtered = allEmployees.filter((emp) =>
@@ -88,7 +94,7 @@ class Employees extends Component {
     //PAGINATE - Target items needed for pagintion
     const employees = Paginate(sorted, currentPage, pageSize);
 
-    //RENDER - If there are employees return a table with employee data
+    //RENDER - If there are employees, return a table with employee data
     return (
       <>
         <Jumbo />
@@ -135,4 +141,5 @@ class Employees extends Component {
   }
 }
 
+//EXPORT
 export default Employees;

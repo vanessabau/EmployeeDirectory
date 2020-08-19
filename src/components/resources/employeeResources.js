@@ -1,3 +1,6 @@
+//Initial set of employee data for rendering the application.
+//Each employee data set includes objects with strings, numbers, and at least one object.
+//This file connects with the titleService.js which lists the objects used in the title object.
 // eslint-disable-next-line
 import * as titlesAPI from "./titleService";
 
@@ -74,6 +77,7 @@ const employees = [
   },
 ];
 
+//EXPORT FUNCTIONS
 export function getEmployees() {
   return employees;
 }
@@ -81,21 +85,6 @@ export function getEmployees() {
 export function getEmployee(id) {
   return employees.find((emp) => emp._id === id);
 }
-
-// export function saveEmployee(employee) {
-//   let employeeInDb = employees.find((emp) => emp._id === employee._id) || {};
-//   employeeInDb.name = employee.name;
-//   employeeInDb.title = titlesAPI.titles.find((t) => t._id === employee.titleId);
-//   employeeInDb.lastName = employee.lastName;
-//   employeeInDb.dailyRentalRate = employee.dailyRentalRate;
-
-//   if (!employeeInDb._id) {
-//     employeeInDb._id = Date.now();
-//     employees.push(employeeInDb);
-//   }
-
-//   return employeeInDb;
-// }
 
 export function deleteEmployee(id) {
   let employeeInDb = employees.find((emp) => emp._id === id);

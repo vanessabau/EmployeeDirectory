@@ -1,5 +1,7 @@
+//DEPENDENCIES
 import React from "react";
 
+//STYLE JUMBOTRON
 const styles = {
   jumbo: {
     margin: "0",
@@ -17,7 +19,9 @@ const styles = {
   },
 };
 
+//DEFINE JUMBOTRON COMPONENT
 function Jumbo() {
+  //Specify elements to be rendered
   return (
     <div className="jumbo">
       <div style={styles.jumbo} className="jumbotron jumbotron-fluid">
@@ -35,4 +39,5 @@ function Jumbo() {
   );
 }
 
+//EXPORT
 export default Jumbo;

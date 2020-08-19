@@ -1,11 +1,14 @@
+//DEPENDENCIES
 import React, { Component } from "react";
 
+//CREATE COMPONENT CLASS
 //interface of this component
 //pass columns: array
 //sortColumn: obj
 //onSort: function
 
 class TableHeader extends Component {
+  //RAISE EVENT
   raiseSort = (path) => {
     //Handle both ascending and descending sorting
     //Clone and compare to change sort order, otherwise sort ascending
@@ -19,6 +22,7 @@ class TableHeader extends Component {
     this.props.onSort(sortColumn); //raise sort event
   };
 
+  //RENDER
   render() {
     return (
       <thead>
@@ -43,4 +47,5 @@ class TableHeader extends Component {
   }
 }
 
+//EXPORT
 export default TableHeader;

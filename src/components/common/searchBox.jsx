@@ -1,5 +1,7 @@
+//DEPENDENCIES
 import React from "react";
 
+//CREATE SEARCHBOX AND ITS FUNCTIONALITY
 function SearchBox({ value, onChange }) {
   return (
     <div className="form-container">
@@ -11,13 +13,10 @@ function SearchBox({ value, onChange }) {
             value={value}
             className="form-control"
             placeholder="Search by last name"
+            //Target text area to define parameters of search
             onChange={(e) => onChange(e.currentTarget.value)}
           />
-          <button
-            type="submit"
-            // onClick={props.handleFormSubmit}
-            className="btn btn-warning btn-sm m-2"
-          >
+          <button type="submit" className="btn btn-warning btn-sm m-2">
             Search
           </button>
         </div>
@@ -26,4 +25,5 @@ function SearchBox({ value, onChange }) {
   );
 }
 
+//EXPORT
 export default SearchBox;

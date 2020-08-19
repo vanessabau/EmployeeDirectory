@@ -1,3 +1,5 @@
+//In order to deploy to heroku I used a method that included creating an express server.
+
 const path = require("path");
 const express = require("express");
 const app = express();
